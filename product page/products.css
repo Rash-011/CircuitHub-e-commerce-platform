@@ -1,0 +1,138 @@
+/* style.css */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+}
+
+.catalog-layout {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+}
+
+.filter-group {
+    margin-bottom: 30px;
+}
+
+.filter-header h3 {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.grid-header {
+    margin-bottom: 30px;
+    font-size: 13px;
+    color: #777;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.image-wrapper {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product-info h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Hover Pop-out Effect */
+.extended-details {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: scale(1.03);
+    z-index: 10;
+    border-color: transparent;
+}
+
+.product-card:hover .extended-details {
+    display: block;
+    opacity: 1;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.desc {
+    font-size: 11px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-to-cart-btn:hover {
+    background: #0056b3;
+}
