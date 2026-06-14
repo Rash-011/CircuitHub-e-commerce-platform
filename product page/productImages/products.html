@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic IoT Catalog</title>
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../products.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="main-header">
+            <div class="container header-inner">
+                <div class="logo">
+                    <h1><span class="circuit-text">Circuit</span><span class="hub-text">Hub</span></h1>
+                </div>
+                <div class="header-actions">
+                    <a href="#">👤 Create an account</a>
+                    <a href="#">🔒 Login</a>
+                    <div class="cart-box">
+                        <span class="cart-icon">🛒</span>
+                        <strong>CART: 0</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="container nav-inner">
+                <div class="categories-wrapper">
+                    <div class="categories-btn" id="categoriesBtn">CATEGORIES ☰</div>
+                    <ul class="categories-dropdown" id="categoriesDropdown">
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="#">Development Boards</a></li>
+                        <li><a href="#">Sensors & Modules</a></li>
+                        <li><a href="#">Electronic Components</a></li>
+                        <li><a href="#">Power & Batteries</a></li>
+                        <li><a href="#">Motors & Actuators</a></li>
+                    </ul>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#">Wish List (0)</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Shopping Cart</a></li>
+                    <li><a href="#">Checkout</a></li>
+                </ul>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit">🔍</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="catalog-layout">
+
+        <aside class="sidebar">
+            <div class="filter-group">
+                <div class="filter-header">
+                    <h3>CATEGORY</h3>
+                </div>
+                <label><input type="checkbox" id="filter-all-category" checked> All Products</label>
+                <label><input type="checkbox" value="microcontroller" class="filter-check" checked>
+                    Microcontrollers</label>
+                <label><input type="checkbox" value="sensor" class="filter-check" checked> Sensors</label>
+                <label><input type="checkbox" value="display" class="filter-check" checked> Displays</label>
+            </div>
+
+            <div class="filter-group">
+                <div class="filter-header">
+                    <h3>CONNECTIVITY</h3>
+                </div>
+                <label><input type="checkbox" value="wifi" class="filter-check"> Wi-Fi</label>
+                <label><input type="checkbox" value="lora" class="filter-check"> LoRaWAN</label>
+                <label><input type="checkbox" value="none" class="filter-check"> None (Wired)</label>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="grid-header">
+                <p id="results-count">Loading products...</p>
+            </header>
+
+            <div id="product-grid" class="product-grid"></div>
+        </main>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>INFORMATION</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CUSTOMER SERVICE</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>EXTRAS</h4>
+                <ul>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="#">Gift Vouchers</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                    <li><a href="#">Specials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>MY ACCOUNT</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Wish List</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon fb">F</a>
+                    <a href="#" class="social-icon tw">T</a>
+                    <a href="#" class="social-icon rss">R</a>
+                </div>
+                <p class="copyright">Powered By OpenCart &copy; 2014</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/script.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>
