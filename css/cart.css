@@ -230,3 +230,8 @@
     margin-top: 10px;
     border-radius: 3px;
 }
+
+.error {
+    color: #ff0000;
+    font-size:smaller;
+}
