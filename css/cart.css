@@ -1,0 +1,232 @@
+/* css/cart.css */
+
+/* Simple page container matching standard layout */
+.cart-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* Simple visual panels */
+.panel {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.panel-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222222;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ff6600;
+    padding-bottom: 8px;
+}
+
+/* Simple Cart Table */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th {
+    background-color: #222222;
+    color: #ffffff;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.cart-table td {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.cart-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    background-color: #f9f9f9;
+}
+
+/* Quantity Adjuster */
+.qty-btn {
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.qty-btn:hover {
+    background-color: #ff6600;
+}
+
+.qty-val {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Simple forms layout */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #ff6600;
+    outline: none;
+}
+
+/* Double column simplified layout */
+.checkout-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.checkout-main {
+    flex: 2;
+}
+
+.checkout-side {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .checkout-layout {
+        flex-direction: column;
+    }
+}
+
+/* Action buttons */
+.btn-orange-large {
+    display: block;
+    width: 100%;
+    background-color: #ff6600;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.btn-orange-large:hover {
+    background-color: #cc5200;
+}
+
+.btn-dark-large {
+    display: block;
+    width: 100%;
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.btn-dark-large:hover {
+    background-color: #444444;
+}
+
+/* Delete Button */
+.btn-delete {
+    background: none;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-delete:hover {
+    color: #ff0000;
+}
+
+/* Totals display box */
+.totals-box {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px dashed #dddddd;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.total-row.grand {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222222;
+}
+
+/* Payment choices */
+.pay-options {
+    margin-bottom: 15px;
+}
+
+.pay-option {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.pay-option label {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cc-fields {
+    background-color: #f9f9f9;
+    border: 1px solid #eeeeee;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 3px;
+}

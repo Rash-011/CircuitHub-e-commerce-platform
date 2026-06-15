@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CircuitHub</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="main-header">
+            <div class="container header-inner">
+                <div class="logo">
+                    <h1>
+                        <a href="index.html" style="color: inherit; display: flex; align-items: center;">
+                            <span class="circuit-text">Circuit</span><span class="hub-text">Hub</span>
+                        </a>
+                    </h1>
+                </div>
+                <div class="header-actions">
+                    <a href="#">👤 Create an account</a>
+                    <a href="#">🔒 Login</a>
+                    <a href="cart.html" class="cart-box" style="text-decoration: none; display: inline-block;">
+                        <span class="cart-icon">🛒</span>
+                        <strong>CART: 0</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <div class="container nav-inner">
+                <div class="categories-wrapper">
+                    <div class="categories-btn" id="categoriesBtn">CATEGORIES ☰</div>
+                    <ul class="categories-dropdown" id="categoriesDropdown">
+                        <li><a href="product page/productImages/products.html">All Products</a></li>
+                        <li><a href="#">Development Boards</a></li>
+                        <li><a href="#">Sensors & Modules</a></li>
+                        <li><a href="#">Electronic Components</a></li>
+                        <li><a href="#">Power & Batteries</a></li>
+                        <li><a href="#">Motors & Actuators</a></li>
+                    </ul>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Wish List (0)</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="cart.html">Shopping Cart</a></li>
+                    <li><a href="checkout.html">Checkout</a></li>
+                </ul>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button type="submit">🔍</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <form id="checkout-form" onsubmit="handlePlaceOrder(event)">
+            <div class="checkout-layout">
+                
+                <!-- Left Column: Shipping & Payment Info -->
+                <div class="checkout-main">
+                    
+                    <!-- Customer Information Panel -->
+                    <div class="panel">
+                        <h2 class="panel-title">Shipping & Billing Details</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" required placeholder="John">
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" required placeholder="Doe">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required placeholder="john.doe@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" required placeholder="077-1234567">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="address">Delivery Address</label>
+                            <input type="text" id="address" required placeholder="123 Main Street, Colombo 03">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required placeholder="Colombo">
+                            </div>
+                            <div class="form-group">
+                                <label for="zip-code">Zip-Code</label>
+                                <input type="text" id="zip-code" required placeholder="11300">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Option Panel -->
+                    <div class="panel">
+                        <h2 class="panel-title">Payment Method</h2>
+                        
+                        <div class="pay-options">
+                            <div class="pay-option">
+                                <label>
+                                    <input type="radio" name="pay_method" value="credit_card" checked onclick="togglePaymentMethod('credit_card')">
+                                    Credit / Debit Card
+                                </label>
+                            </div>
+                            <div class="pay-option">
+                                <label>
+                                    <input type="radio" name="pay_method" value="cod" onclick="togglePaymentMethod('cod')">
+                                    Cash on Delivery (COD)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Credit Card Details Container -->
+                        <div class="cc-fields" id="credit-card-fields-block">
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label for="cc-num">Card Number *</label>
+                                <input type="text" id="cc-num" placeholder="1234 5678 1234 5678" maxlength="19">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cc-exp">Expiry Date *</label>
+                                    <input type="text" id="cc-exp" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cc-cvv">CVV *</label>
+                                    <input type="password" id="cc-cvv" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- COD Info Message -->
+                        <div id="cod-info-block" style="display: none; padding: 10px; background-color: #f9f9f9; border: 1px solid #eee; border-radius: 3px; font-size: 14px; color: #555;">
+                            Pay with cash when the package is delivered to your doorstep.
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Sidebar Summary -->
+                <div class="checkout-side">
+                    <div class="panel">
+                        <h2 class="panel-title">Order Summary</h2>
+                        
+                        <table class="cart-table" style="font-size: 13px;">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Qty</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="checkout-items-list">
+                                <!-- Filled by Javascript -->
+                            </tbody>
+                        </table>
+
+                        <div class="totals-box">
+                            <div class="total-row grand">
+                                <span>Grand Total:</span>
+                                <span id="grand-total-val">$0.00</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-orange-large" style="margin-top: 15px;">Place Order</button>
+                        <a href="cart.html" class="btn-dark-large" style="margin-top: 10px; display: block; text-align: center;">Back to Cart</a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>INFORMATION</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CUSTOMER SERVICE</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>EXTRAS</h4>
+                <ul>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="#">Gift Vouchers</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                    <li><a href="#">Specials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>MY ACCOUNT</h4>
+                <ul>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Order History</a></li>
+                    <li><a href="#">Wish List</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon fb">F</a>
+                    <a href="#" class="social-icon tw">T</a>
+                    <a href="#" class="social-icon rss">R</a>
+                </div>
+                <p class="copyright">Powered By OpenCart &copy; 2014</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let cart = getCart();
+            
+            // If the cart is empty, redirect user back to main page
+            if (cart.length === 0) {
+                alert("Your cart is empty. You cannot proceed to checkout.");
+                window.location.href = "index.html";
+                return;
+            }
+
+            renderCheckoutSummary();
+            togglePaymentMethod('credit_card'); // Default payment method
+        });
+
+        // Toggle required fields and visibility based on payment method
+        function togglePaymentMethod(method) {
+            let ccBlock = document.getElementById("credit-card-fields-block");
+            let codBlock = document.getElementById("cod-info-block");
+            
+            let ccNum = document.getElementById("cc-num");
+            let ccExp = document.getElementById("cc-exp");
+            let ccCvv = document.getElementById("cc-cvv");
+
+            if (method === "credit_card") {
+                ccBlock.style.display = "block";
+                codBlock.style.display = "none";
+                
+                ccNum.required = true;
+                ccExp.required = true;
+                ccCvv.required = true;
+            } else {
+                ccBlock.style.display = "none";
+                codBlock.style.display = "block";
+                
+                ccNum.required = false;
+                ccExp.required = false;
+                ccCvv.required = false;
+            }
+        }
+
+        // Render mini items list in sidebar
+        function renderCheckoutSummary() {
+            let cart = getCart();
+            let tbody = document.getElementById("checkout-items-list");
+            if (!tbody) return;
+
+            tbody.innerHTML = "";
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                let total = item.price * item.qty;
+                subtotal += total;
+
+                let tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.qty}</td>
+                    <td style="font-weight: bold;">$${total.toFixed(2)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById("grand-total-val").textContent = "$" + subtotal.toFixed(2);
+        }
+
+        // Handle order placement and alerts
+        function handlePlaceOrder(event) {
+            event.preventDefault();
+
+            let cart = getCart();
+            let totalCost = 0;
+            cart.forEach(item => totalCost += item.price * item.qty);
+
+            let selectedMethodVal = document.querySelector('input[name="pay_method"]:checked').value;
+            let methodLabel = selectedMethodVal === "credit_card" ? "Credit Card" : "Cash on Delivery (COD)";
+
+            let orderId = "CH-" + Math.floor(100000 + Math.random() * 900000);
+
+            // Notify user of order completion details
+            alert(
+                "Order Placed Successfully!\n\n" +
+                "Order ID: " + orderId + "\n" +
+                "Total Amount: $" + totalCost.toFixed(2) + "\n" +
+                "Payment Method: " + methodLabel + "\n\n" +
+                "Thank you for shopping at CircuitHub!"
+            );
+
+            // Empty cart data
+            clearCart();
+
+            // Redirect back to main store
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>

@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div class="extended-details">
                         <p class="desc">${product.description}</p>
-                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <button class="add-to-cart-btn" onclick="addToCart('${product.name}', ${parseFloat(product.price_from)}, '${product.image_path}')">Add to Cart</button>
                     </div>
                 </div>
             `;
