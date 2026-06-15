@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div class="extended-details">
                         <p class="desc">${product.description}</p>
-                        <button class="add-to-cart-btn">Details</button>
+                        <a href="/CircuitHub-ecommerce/product-page/product.php?id=${product.id}" class="add-to-cart-btn" style="display:block; text-align:center; text-decoration:none;">View Details</a>
                     </div>
                 </div>
             `;
