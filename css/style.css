@@ -130,8 +130,6 @@
     100% {
         transform: translateX(-50%);
     }
-
-    /* Translates exactly half the width (the original set) */
 }
 
 /* Featured Products (5 Columns) */
@@ -147,7 +145,6 @@
 .product-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    /* Enforces exactly 5 cards per row */
     gap: 15px;
     margin-bottom: 40px;
 }
@@ -162,7 +159,6 @@
     flex-direction: column;
 }
 
-/* Sophisticated Hover Effects */
 .product-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
@@ -233,7 +229,7 @@ h3.product-name {
 }
 
 .add-to-cart-btn {
-    flex: 2;
+    width: 100%;
     background-color: #ff6600;
     color: white;
     border: none;
@@ -244,6 +240,11 @@ h3.product-name {
     border-radius: 3px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     text-align: center;
+}
+
+.add-to-cart-btn-link {
+    flex: 2;
+    text-decoration: none;
 }
 
 .product-card:hover .add-to-cart-btn {
@@ -357,3 +358,358 @@ h3.product-name {
     font-weight: bold;
     transform-origin: bottom left;
 }
+
+/* ==========================================
+   Product Details Modal (Popup Window) Styles
+   ========================================== */
+
+/* Darkened overlay backdrop spanning the screen viewport */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    align-items: center;
+    justify-content: center;
+}
+
+/* The structural modal dialog card info container box */
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    font-family: sans-serif;
+    animation: zoomInModal 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes zoomInModal {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* The close button window action selector (X) */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #ff3300;
+}
+
+/* see more Product Button*/
+
+.see-more-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    width: 100%;
+    margin: 40px 0 20px 0;   /* Generous breathing room top and bottom */
+}
+
+.see-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;               /* Space between text and arrow */
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 40px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;   /* Sophisticated high-end tracking */
+    border: 2px solid #333333;
+    border-radius: 50px;     /* Smooth pill-shaped look */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+/* Smooth Interactive Arrow Animation */
+.see-more-btn .btn-arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+/* Elegant Hover Effects */
+.see-more-btn:hover {
+    background-color: #ff6600;
+    border-color: #ff6600;
+    color: #ffffff;
+    transform: translateY(-4px); /* Light lift effect */
+    box-shadow: 0 8px 25px rgba(255, 102, 0, 0.35); /* Warm ambient glow */
+}
+
+/* Make the arrow nudge forward slightly on hover */
+.see-more-btn:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* Active click feedback state */
+.see-more-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 102, 0, 0.2);
+}
+
+
+
+/*wish_list css */
+/* css/wishlist.css */
+
+/* Unique styling for the wishlist table layout */
+.wishlist-section {
+    margin: 40px auto;
+    min-height: 400px;
+}
+
+.wishlist-table-wrapper {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #eee;
+    margin-top: 20px;
+}
+
+.wishlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.wishlist-table th {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 15px 20px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.wishlist-table td {
+    padding: 20px;
+    border-bottom: 1px solid #eeeeee;
+    vertical-align: middle;
+}
+
+.wishlist-table tr:last-child td {
+    border-bottom: none;
+}
+
+.wishlist-img {
+    width: 80px;
+    height: auto;
+    max-height: 80px;
+    object-fit: contain;
+    display: block;
+}
+
+.wishlist-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    margin: 0 0 5px 0;
+}
+
+.stock-status {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.in-stock {
+    background-color: #e6f7ed;
+    color: #2e7d32;
+}
+
+.out-of-stock {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.remove-item-btn {
+    color: #888;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.2s;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.remove-item-btn:hover {
+    color: #ff3300;
+}
+
+.wishlist-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Empty state styling */
+.wishlist-empty {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.wishlist-empty-icon {
+    font-size: 64px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.wishlist-empty h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.wishlist-empty p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+/* css/wishlist.css */
+
+.wishlist-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+.wishlist-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.wishlist-header-section h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+/* Beautiful "Back to Store" Action Button */
+.back-store-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f4f4f7;
+    color: #4a5568;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.back-store-btn:hover {
+    background-color: #edf2f7;
+    color: #1a202c;
+    transform: translateX(-3px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.wishlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Corrected Table Header Appearance */
+.wishlist-table th {
+    background-color: #343a40 !important; /* Premium dark background */
+    color: #ffffff !important;            /* High contrast white text */
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.wishlist-table td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #eef2f5;
+    vertical-align: middle;
+    background-color: #fff;
+}
+
+.product-img {
+    width: 65px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.remove-btn {
+    color: #e53e3e;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.remove-btn:hover {
+    background-color: #fff5f5;
+    color: #c53030;
+}
+
+.add-cart-btn {
+    background-color: #2f855a;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    transition: background 0.2s;
+}
+
+.add-cart-btn:hover {
+    background-color: #22543d;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 60px 20px;
+    color: #718096;
+    background: #f7fafc;
+    border-radius: 8px;
+    border: 2px dashed #e2e8f0;
+}
+ 
