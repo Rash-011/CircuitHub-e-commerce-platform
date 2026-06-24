@@ -4,6 +4,12 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Require login before showing the home page
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
 // 2. Database connection parameters
 $host    = '127.0.0.1';
 $port    = '3307';
@@ -111,7 +117,7 @@ function is_wishlisted($product_id, $existing_wishlist)
                     <h1><a href="homePage.php" style="text-decoration: none;"><span class="circuit-text">Circuit</span><span class="hub-text">Hub</span></a></h1>
                 </div>
                 <div class="header-actions">
-                    <a href="register.php">👤 Create an account</a>
+                    <a href="registration.php">👤 Create an account</a>
                     <a href="login.php">🔒 Login</a>
                     <div class="cart-box" onclick="location.href='cart.php';" style="cursor: pointer;">
                         <span class="cart-icon">🛒</span>
