@@ -189,7 +189,7 @@ function product_image_url($db_path)
                     <h1><a href="homePage.php" style="text-decoration: none;"><span class="circuit-text">Circuit</span><span class="hub-text">Hub</span></a></h1>
                 </div>
                 <div class="header-actions">
-                    <a href="register.php">👤 Create an account</a>
+                    <a href="registration.php">👤 Create an account</a>
                     <a href="login.php">🔒 Login</a>
                     <div class="cart-box" onclick="location.href='cart.php';" style="cursor: pointer;">
                         <span class="cart-icon">🛒</span>
